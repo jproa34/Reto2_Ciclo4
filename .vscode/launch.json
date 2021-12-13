@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Reto2_Ciclo4<hipercalorico>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.hiper.Reto2_Ciclo4",
+            "projectName": "hipercalorico",
+            "args": ""
+        }
+    ]
+}
