@@ -1,13 +1,7 @@
-//Definiciones globales al script
-const errores = document.getElementsByClassName("err");
-const alerta = document.getElementById("alerta");
-const mensaje = document.getElementById("mensaje");
 
-
-
-function traerInformacionCategorias(){
+function traerInformacionProducts(){
     $.ajax({
-        url:"http://localhost:8080/api/user/all",
+        url:"http://localhost:8080/api/vegetarian/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -22,35 +16,35 @@ function pintarRespuesta(respuesta){
 
     let myTable="<table class='table table-success table-bordered'>";
     myTable+="<tr>";
-    myTable+="<td>"+"Id"+"</td>";
-    myTable+="<td>"+"identification"+"</td>";
-    myTable+="<td>"+"name"+"</td>";
-    myTable+="<td>"+"address"+"</td>";
-    myTable+="<td>"+"cellPhone"+"</td>";
-    myTable+="<td>"+"email"+"</td>";
-    myTable+="<td>"+"password"+"</td>";
-    myTable+="<td>"+"zone"+"</td>";
-    myTable+="<td>"+"type"+"</td>";
-    myTable+="<td>"+"Actualizar"+"</td>";
-    myTable+="<td>"+"Eliminar"+"</td>";
+    myTable+="<td>"+"#"+"</td>";
+    myTable+="<td>"+"Reference"+"</td>";
+    myTable+="<td>"+"brand"+"</td>";
+    myTable+="<td>"+"Category"+"</td>";
+    myTable+="<td>"+"Description"+"</td>";
+    myTable+="<td>"+"Availability"+"</td>";
+    myTable+="<td>"+"Price"+"</td>";
+    myTable+="<td>"+"Quantity"+"</td>";
+    myTable+="<td>"+"photography"+"</td>";
+    myTable+="<td colspan='2' class='text-center'>"+"Acciones"+"</td>";
     myTable+="</tr>";
     for(i=0;i<respuesta.length;i++){
+        posicion = i + 1;
         myTable+="<tr>";
-        myTable+="<td>"+respuesta[i].id+"</td>";
-        myTable+="<td>"+respuesta[i].identification+"</td>";
-        myTable+="<td>"+respuesta[i].name+"</td>";
-        myTable+="<td>"+respuesta[i].address+"</td>";
-        myTable+="<td>"+respuesta[i].cellPhone+"</td>";
-        myTable+="<td>"+respuesta[i].email+"</td>";
-        myTable+="<td>"+respuesta[i].password+"</td>";
-        myTable+="<td>"+respuesta[i].zone+"</td>";
-        myTable+="<td>"+respuesta[i].type+"</td>";
-        myTable+="<td> <button onclick='actualizarInformacionBikes("+respuesta[i].id+")' class='btn btn-warning botonos'>Actualizar</button>";
+        myTable+="<td>"+posicion+"</td>";
+        myTable+="<td>"+respuesta[i].reference+"</td>";
+        myTable+="<td>"+respuesta[i].brand+"</td>";
+        myTable+="<td>"+respuesta[i].category+"</td>";
+        myTable+="<td>"+respuesta[i].description+"</td>";
+        myTable+="<td>"+respuesta[i].availability+"</td>";
+        myTable+="<td>"+respuesta[i].price+"</td>";
+        myTable+="<td>"+respuesta[i].quantity+"</td>";
+        myTable+="<td>"+respuesta[i].photography+"</td>";
+        myTable+="<td> <button onclick='actualizarInformacionBikes("+respuesta[i].id+")' class='btn btn-warning botonos '>Actualizar</button>";
         myTable+="<td> <button onclick='borrarBikes("+respuesta[i].id+")'  class='btn btn-danger botonos'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";
-    $("#resultado1").html(myTable);
+    $("#resultadoProducts").html(myTable);
 }
 
 
